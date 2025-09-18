@@ -9,7 +9,12 @@ async function getUserByEmail(email) {
     return await User.findOne({ email });
 }
 
+async function updateLocation(userId, location) {
+    return await User.findByIdAndUpdate(userId, { location }, { new: true });
+}
+
 module.exports = {
     createUser,
     getUserByEmail,
+    updateLocation
 };
